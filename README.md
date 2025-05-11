@@ -1,0 +1,1 @@
+# technortal_odoo_technical_course_batch_1
