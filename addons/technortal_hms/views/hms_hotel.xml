@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hms_hotel_action" model="ir.actions.act_window">
+        <field name="name">Hotels</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.hotel</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
