@@ -4,6 +4,7 @@
     "license":"LGPL-3",
     "data":[
         "views/hms_hotel.xml",
+        "views/hms_room.xml",
 
         "views/menus.xml",
     ]
