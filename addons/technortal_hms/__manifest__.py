@@ -4,6 +4,8 @@
     "license":"LGPL-3",
     "depends":["contacts"],
     "data":[
+        "security/ir.model.access.csv",
+
         "views/hms_hotel.xml",
         "views/hms_room.xml",
 
