@@ -5,4 +5,5 @@ class HmsHotel(models.Model):
     _description = 'HmsHotel'
 
     name = fields.Char()
+    room_ids = fields.One2many('hms.room','hotel_id')
 
