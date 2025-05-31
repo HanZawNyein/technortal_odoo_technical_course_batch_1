@@ -8,6 +8,7 @@
 
         "views/hms_hotel.xml",
         "views/hms_room.xml",
+        "views/hms_booking.xml",
 
         "views/menus.xml",
     ]

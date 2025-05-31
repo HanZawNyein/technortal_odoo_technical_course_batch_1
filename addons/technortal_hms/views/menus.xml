@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <menuitem id="technortal_hms_root" name="Hotel Management System">
-        <menuitem id="configuration_category" name="Configuration" sequence="1">
+        <menuitem id="hms_booking_category" name="Booking"
+                  sequence="0"
+                  action="technortal_hms.hms_booking_action"/>
+        <menuitem id="hms_room_category" name="Rooms"
+                  sequence="1"
+                  action="technortal_hms.hms_room_action"/>
+        <menuitem id="configuration_category" name="Configuration" sequence="2">
             <menuitem id="hms_hotel_category" name="Hotels"
                       sequence="1"
                       action="technortal_hms.hms_hotel_action"/>
         </menuitem>
-        <menuitem id="hms_room_category" name="Rooms"
-                  sequence="0"
-                  action="technortal_hms.hms_room_action"/>
+
     </menuitem>
 </odoo>

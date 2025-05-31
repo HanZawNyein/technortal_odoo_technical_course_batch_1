@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hms_hotel,hms.hotel,model_hms_hotel,,1,1,1,1
 access_hms_room,hms.room,model_hms_room,,1,1,1,1
+access_hms_booking,hms.booking,model_hms_booking,,1,1,1,1
