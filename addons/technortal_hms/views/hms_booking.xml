@@ -22,7 +22,7 @@
                     </div>
                     <group>
                         <field name="hotel_id"/>
-                        <field name="room_id"/>
+                        <field name="room_id" domain="[('hotel_id','=',hotel_id)]"/>
                         <field name="type" widget="radio"/>
                     </group>
                     <notebook>

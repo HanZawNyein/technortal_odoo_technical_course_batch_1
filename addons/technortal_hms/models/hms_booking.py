@@ -21,18 +21,19 @@ class HmsBooking(models.Model):
          ('done', 'Done'),
          ('cancel', 'Cancelled')], default='draft')
 
-    @api.model
-    def create(self, values):
-        # Add code here
-        # values['reference']='B10000000'
-        if (not values.get('reference')) or values.get('reference') == _('New'):
-            values['reference'] = self.env['ir.sequence'].next_by_code('hms.booking') or _('New')
-        return super(HmsBooking, self).create(values)
+    # @api.model
+    # def create(self, values):
+    #     # Add code here
+    #     # values['reference']='B10000000'
+    #     if (not values.get('reference')) or values.get('reference') == _('New'):
+    #         values['reference'] = self.env['ir.sequence'].next_by_code('hms.booking') or _('New')
+    #     return super(HmsBooking, self).create(values)
 
     def action_draft(self):
         self.state = 'draft'
 
     def action_confirm(self):
+        self.reference = self.env['ir.sequence'].next_by_code('hms.booking') or _('New')
         self.state = 'confirm'
 
     def action_paid(self):
