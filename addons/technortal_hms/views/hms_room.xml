@@ -17,6 +17,9 @@
         <field name="model">hms.room</field>
         <field name="arch" type="xml">
             <form string="hms_room_form">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="available,not_available"/>
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button class="oe_stat_button"
