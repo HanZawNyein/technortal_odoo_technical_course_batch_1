@@ -2,7 +2,7 @@
     "name":"Hotel Management System",
     "author":"Agga, IdeaCode Academy",
     "license":"LGPL-3",
-    "depends":["contacts"],
+    "depends":["contacts","mail"],
     "data":[
         "data/sequence.xml",
         "security/ir.model.access.csv",

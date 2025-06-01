@@ -21,9 +21,13 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="partner_id"/>
                         <field name="hotel_id"/>
                         <field name="room_id" domain="[('hotel_id','=',hotel_id)]"/>
                         <field name="type" widget="radio"/>
+                        <field name="confirm_partner_id"/>
+                        <field name="create_uid"/>
+                        <field name="write_uid"/>
                     </group>
                     <notebook>
                         <page name="description" string="Description">
@@ -31,6 +35,7 @@
                         </page>
                     </notebook>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
