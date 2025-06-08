@@ -7,4 +7,4 @@ class HmsHotel(models.Model):
     name = fields.Char()
     tags = fields.Many2many('res.partner.category')
     room_ids = fields.One2many('hms.room','hotel_id')
-
+    active = fields.Boolean('Active', default=True)
