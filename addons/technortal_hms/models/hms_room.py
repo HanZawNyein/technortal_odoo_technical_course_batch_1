@@ -17,7 +17,7 @@ class HmsRoom(models.Model):
 
     booking_ids = fields.One2many('hms.booking', 'room_id')
     # price_unit = fields.Float()
-    currency_id = fields.Many2one('res.currency', string='Currency',related='hotel_id.currency_id')
+    currency_id = fields.Many2one('res.currency', string='Currency',related='hotel_id.currency_id',readonly=True,)
     price_unit = fields.Monetary(currency_field='currency_id', string='Price')
 
     _sql_constraints = [

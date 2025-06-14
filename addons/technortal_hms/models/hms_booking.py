@@ -24,6 +24,16 @@ class HmsBooking(models.Model):
          ('cancel', 'Cancelled')], default='draft',tracking=True)
     partner_id = fields.Many2one('res.partner')
     confirm_partner_id = fields.Many2one('res.partner',readonly=True)
+
+    currency_id = fields.Many2one('res.currency')
+    price_unit = fields.Monetary()
+
+    @api.onchange('room_id')
+    def _onchange_room_id(self):
+        if self.room_id:
+            self.currency_id = self.room_id.currency_id
+            self.price_unit = self.room_id.price_unit
+    # price_unit2 = fields.Monetary()
     #,default=lambda self: self.env.user.partner_id.id)
 
     # @api.model
