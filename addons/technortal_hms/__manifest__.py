@@ -13,5 +13,7 @@
         "views/hms_booking.xml",
 
         "views/menus.xml",
-    ]
+    ],
+
+    "description":""""""
 }
