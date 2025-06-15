@@ -29,6 +29,7 @@ class HmsBooking(models.Model):
     price_unit = fields.Monetary()
 
     is_paid = fields.Boolean(default=False)
+    active = fields.Boolean('Active', default=True)
 
     @api.onchange('room_id')
     def _onchange_room_id(self):

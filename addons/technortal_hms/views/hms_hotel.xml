@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <form string="hms_hotel_form">
                 <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
                     <group>
                         <group>
                             <field name="name"/>
