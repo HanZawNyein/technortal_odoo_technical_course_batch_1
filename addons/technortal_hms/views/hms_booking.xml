@@ -5,9 +5,9 @@
         <field name="model">hms.booking</field>
         <field name="arch" type="xml">
             <list string="hms_booking_tree" decoration-info="state == 'done'"
-                       decoration-warning="state == 'confirm'"
-                       decoration-success="state == 'paid'"
-                       decoration-danger="state == 'cancel'">
+                  decoration-warning="state == 'confirm'"
+                  decoration-success="state == 'paid'"
+                  decoration-danger="state == 'cancel'">
                 <field name="reference"/>
                 <field name="partner_id"/>
                 <field name="hotel_id" optional="hide"/>
@@ -26,6 +26,7 @@
             </list>
         </field>
     </record>
+
     <record id="hms_booking_view_form" model="ir.ui.view">
         <field name="name">hms_booking_view_form</field>
         <field name="model">hms.booking</field>
@@ -46,6 +47,8 @@
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done,paid"/>
                 </header>
                 <sheet>
+                    <field name="is_paid" invisible="1"/>
+                    <widget name="web_ribbon" title="Paid" invisible="not is_paid"/>
                     <div class="oe_title">
                         <h1>
                             <field name="reference" readonly="1"/>

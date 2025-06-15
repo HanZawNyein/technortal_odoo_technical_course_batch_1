@@ -1,4 +1,4 @@
-from odoo import api, fields, models,_
+from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
@@ -6,12 +6,12 @@ class HmsBooking(models.Model):
     _name = 'hms.booking'
     _description = 'HmsBooking'
     _rec_name = 'reference'
-    _inherit =['mail.thread','mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    reference = fields.Char( default=lambda self: _('New'),readonly=True,copy=False)
+    reference = fields.Char(default=lambda self: _('New'), readonly=True, copy=False)
     description = fields.Text()
-    hotel_id = fields.Many2one('hms.hotel', required=True,tracking=True)
-    room_id = fields.Many2one('hms.room', required=True,tracking=True)
+    hotel_id = fields.Many2one('hms.hotel', required=True, tracking=True)
+    room_id = fields.Many2one('hms.room', required=True, tracking=True)
     type = fields.Selection([
         ('section', 'Section'),
         ('daily', 'Daily'),
@@ -21,20 +21,23 @@ class HmsBooking(models.Model):
          ('confirm', 'Confirmed'),
          ('paid', 'Paid'),
          ('done', 'Done'),
-         ('cancel', 'Cancelled')], default='draft',tracking=True)
+         ('cancel', 'Cancelled')], default='draft', tracking=True)
     partner_id = fields.Many2one('res.partner')
-    confirm_partner_id = fields.Many2one('res.partner',readonly=True)
+    confirm_partner_id = fields.Many2one('res.partner', readonly=True)
 
     currency_id = fields.Many2one('res.currency')
     price_unit = fields.Monetary()
+
+    is_paid = fields.Boolean(default=False)
 
     @api.onchange('room_id')
     def _onchange_room_id(self):
         if self.room_id:
             self.currency_id = self.room_id.currency_id
             self.price_unit = self.room_id.price_unit
+
     # price_unit2 = fields.Monetary()
-    #,default=lambda self: self.env.user.partner_id.id)
+    # ,default=lambda self: self.env.user.partner_id.id)
 
     @api.model
     def create(self, values):
@@ -59,11 +62,18 @@ class HmsBooking(models.Model):
         # self._available_state('paid')
         return {
             "type": "ir.actions.act_window",
-            "res_model":"booking.payment.wizard",
-            "target":"new",
+            "res_model": "booking.payment.wizard",
+            "target": "new",
             "view_mode": "form",
-            "context":{"default_currency_id":self.currency_id.id,},
+            "context": {
+                "default_currency_id": self.currency_id.id,
+                'default_price_unit': self.price_unit,
+            },
         }
+
+    def _paid(self):
+        self._available_state('paid')
+        self.is_paid = True
 
     def action_done(self):
         # self.state = 'done'
@@ -73,8 +83,8 @@ class HmsBooking(models.Model):
         # self.state = 'cancel'
         self._available_state('cancel')
 
-    def _available_state(self,new_state):
-        states = [('draft','confirm'),('confirm','cancel'),('confirm','paid'),('paid','done')]
-        if (self.state,new_state) not in states:
+    def _available_state(self, new_state):
+        states = [('draft', 'confirm'), ('confirm', 'cancel'), ('confirm', 'paid'), ('paid', 'done')]
+        if (self.state, new_state) not in states:
             raise ValidationError(_(f"{self.state} to {new_state} is not available."))
         self.state = new_state
