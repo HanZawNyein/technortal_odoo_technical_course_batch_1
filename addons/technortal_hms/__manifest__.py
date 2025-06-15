@@ -12,6 +12,8 @@
         "views/hms_room.xml",
         "views/hms_booking.xml",
 
+        "wizard/booking_payment_wizard.xml",
+
         "views/menus.xml",
     ],
 

@@ -36,13 +36,13 @@ class HmsBooking(models.Model):
     # price_unit2 = fields.Monetary()
     #,default=lambda self: self.env.user.partner_id.id)
 
-    # @api.model
-    # def create(self, values):
-    #     # Add code here
-    #     # values['reference']='B10000000'
-    #     if (not values.get('reference')) or values.get('reference') == _('New'):
-    #         values['reference'] = self.env['ir.sequence'].next_by_code('hms.booking') or _('New')
-    #     return super(HmsBooking, self).create(values)
+    @api.model
+    def create(self, values):
+        # Add code here
+        # values['reference']='B10000000'
+        if (not values.get('reference')) or values.get('reference') == _('New'):
+            values['reference'] = self.env['ir.sequence'].next_by_code('hms.booking') or _('New')
+        return super(HmsBooking, self).create(values)
 
     def action_draft(self):
         # self.state = 'draft'
@@ -56,7 +56,14 @@ class HmsBooking(models.Model):
 
     def action_paid(self):
         # self.state = 'paid'
-        self._available_state('paid')
+        # self._available_state('paid')
+        return {
+            "type": "ir.actions.act_window",
+            "res_model":"booking.payment.wizard",
+            "target":"new",
+            "view_mode": "form",
+            "context":{"default_currency_id":self.currency_id.id,},
+        }
 
     def action_done(self):
         # self.state = 'done'
