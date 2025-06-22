@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_hms_booking" model="ir.actions.report">
+            <field name="name">Booking</field>
+            <field name="model">hms.booking</field>
+            <field name="binding_model_id" ref="model_hms_booking"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">technortal_hms.report_hms_booking</field>
+            <field name="report_file">technortal_hms.report_hms_booking</field>
+        </record>
+</odoo>

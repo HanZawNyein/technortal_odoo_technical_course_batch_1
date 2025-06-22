@@ -4,6 +4,9 @@
     "license":"LGPL-3",
     "depends":["base","contacts","mail"],
     "data":[
+        "report/booking.xml",
+        "report/booking_templates.xml",
+
         "data/sequence.xml",
         "security/ir.model.access.csv",
         "views/res_partner.xml",
