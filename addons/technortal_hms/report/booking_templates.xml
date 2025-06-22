@@ -4,7 +4,18 @@
         <template id="report_hms_booking">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
-                   <h1>Hello</h1>
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            <div class="row mt8">
+                                <div class="col-8">
+                                    <h2 t-field="o.reference"/>
+                                    <p style="margin-top: 500px;"><t class="text-danger m-2" t-esc="o.description"></t></p>
+                                </div>
+                            </div>
+                            <div class="oe_structure"/>
+                        </div>
+                    </t>
                 </t>
             </t>
         </template>
