@@ -1,6 +1,9 @@
 services:
   web:
-    image: odoo:18.0
+#    image: odoo:18.0
+    build:
+      context: .
+      dockerfile: Dockerfile
     depends_on:
       - db
     ports:
