@@ -20,5 +20,8 @@
         "views/menus.xml",
     ],
 
-    "description":""""""
+    "description":"""""",
+    "external_dependencies":{
+        "python":["paramiko"],
+    }
 }

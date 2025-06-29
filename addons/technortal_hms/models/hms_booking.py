@@ -53,10 +53,11 @@ class HmsBooking(models.Model):
         self._available_state('draft')
 
     def action_confirm(self):
-        self.reference = self.env['ir.sequence'].next_by_code('hms.booking') or _('New')
-        self.confirm_partner_id = self.env.user.partner_id.id
-        # self.state = 'confirm'
-        self._available_state('confirm')
+        for rec in self:
+            rec.reference = rec.env['ir.sequence'].next_by_code('hms.booking') or _('New')
+            rec.confirm_partner_id = rec.env.user.partner_id.id
+            # self.state = 'confirm'
+            rec._available_state('confirm')
 
     def action_paid(self):
         # self.state = 'paid'
