@@ -1,9 +1,9 @@
 {
-    "name":"Hotel Management System",
-    "author":"Agga, IdeaCode Academy",
-    "license":"LGPL-3",
-    "depends":["base","contacts","mail"],
-    "data":[
+    "name": "Hotel Management System",
+    "author": "Agga, IdeaCode Academy",
+    "license": "LGPL-3",
+    "depends": ["base", "contacts", "mail"],
+    "data": [
         "report/booking.xml",
         "report/booking_templates.xml",
 
@@ -20,8 +20,13 @@
         "views/menus.xml",
     ],
 
-    "description":"""""",
-    "external_dependencies":{
-        "python":["paramiko"],
-    }
+    "description": """""",
+    "external_dependencies": {
+        "python": ["paramiko"],
+    },
+    "assets": {
+        "web.assets_backend": [
+            "technortal_hms/static/src/sample_client_action/**/*",
+        ],
+    },
 }
