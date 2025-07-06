@@ -8,6 +8,7 @@
                 <field name="name"/>
                 <field name="hotel_id"/>
                 <field name="type"/>
+                <field name="state" widget="badge"/>
             </list>
         </field>
     </record>

@@ -36,10 +36,11 @@ class HmsRoom(models.Model):
 
     @api.depends('booking_ids.state')
     def _compute_booking_ids(self):
-        if 'paid' in self.booking_ids.mapped('state'):  # ['done','cancel,'paid']
-            self.state = 'not_available'
-        else:
-            self.state = 'available'
+        for rec in self:
+            if 'paid' in rec.booking_ids.mapped('state'):  # ['done','cancel,'paid']
+                rec.state = 'not_available'
+            else:
+                rec.state = 'available'
 
     # @api.constrains('name')
     # def _check_name(self):
