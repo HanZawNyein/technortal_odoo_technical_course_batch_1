@@ -13,7 +13,7 @@ class HmsRoom(models.Model):
         ('vip', 'VIP'),
         ('vvip', 'VVIP')], default='normal')
     state = fields.Selection([('available', 'Available'), ('not_available', 'Not Available')],
-                             default='available', compute="_compute_booking_ids")
+                             default='available', compute="_compute_booking_ids",store=True)
 
     booking_ids = fields.One2many('hms.booking', 'room_id')
     # price_unit = fields.Float()
