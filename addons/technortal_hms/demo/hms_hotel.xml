@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Add Payment terms on some demo partners -->
+        <record id="demo_hotel" model="hms.hotel">
+            <field name="name" eval="'Demo Hotel'"/>
+            <field name="currency_id" ref="base.MMK"/>
+        </record>
+    </data>
+</odoo>

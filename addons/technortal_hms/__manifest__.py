@@ -20,6 +20,8 @@
         "wizard/booking_payment_wizard.xml",
 
         "views/menus.xml",
+
+
     ],
 
     "description": """""",
@@ -31,4 +33,8 @@
             "technortal_hms/static/src/sample_client_action/**/*",
         ],
     },
+    "demo": [
+        "demo/hms_hotel.xml",
+        "demo/hms_room.xml",
+    ],
 }

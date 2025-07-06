@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="demo_room_a01" model="hms.room">
+            <field name="name" eval="'Demo ROOM A01'"/>
+            <field name="hotel_id" ref="technortal_hms.demo_hotel"/>
+            <field name="type" eval="'normal'"/>
+        </record>
+
+        <record id="demo_room_a02" model="hms.room">
+            <field name="name" eval="'Demo ROOM A02'"/>
+            <field name="hotel_id" ref="technortal_hms.demo_hotel"/>
+            <field name="type" eval="'vip'"/>
+        </record>
+
+        <record id="demo_room_a03" model="hms.room">
+            <field name="name" eval="'Demo ROOM A03'"/>
+            <field name="hotel_id" ref="technortal_hms.demo_hotel"/>
+            <field name="type" eval="'vvip'"/>
+        </record>
+    </data>
+</odoo>
