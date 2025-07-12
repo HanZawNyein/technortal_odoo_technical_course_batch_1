@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="hms_rooms_template" name="Hotels">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container m-5">
+                    <h3>Rooms</h3>
+                    <hr/>
+                    <div class="container m-2">
+                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <t t-foreach="rooms_ids" t-as="room">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <!--                                        <t t-if="hotel.image_128">-->
+                                        <!--                                            <img t-att-src="image_data_uri(hotel.image_128)" class="card-img-top" style="width:10%"/>-->
+                                        <!--                                        </t>-->
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <t t-out="room.display_name"/>
+                                            </h5>
+                                            <!--                                            <p class="card-text">This is a longer card with supporting text below as a-->
+                                            <!--                                                natural-->
+                                            <!--                                                lead-in-->
+                                            <!--                                                to additional content. This content is a little bit longer.</p>-->
+                                        </div>
+                                        <!--                                        <div class="card-footer">-->
+                                        <!--                                            <a class="btn btn-primary" t-attf-href="/rooms/{{hotel.id}}/{{hotel.id}}">Details</a>-->
+                                        <!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

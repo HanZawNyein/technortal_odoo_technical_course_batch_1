@@ -2,7 +2,7 @@
     "name": "Hotel Management System",
     "author": "Agga, IdeaCode Academy",
     "license": "LGPL-3",
-    "depends": ["base", "contacts", "mail"],
+    "depends": ["base","web","portal","website", "contacts", "mail"],
     "data": [
         "report/booking.xml",
         "report/booking_templates.xml",
@@ -20,6 +20,9 @@
         "wizard/booking_payment_wizard.xml",
 
         "views/menus.xml",
+
+        "views/hml_hotels_template.xml",
+        "views/hml_room_template.xml",
 
 
     ],

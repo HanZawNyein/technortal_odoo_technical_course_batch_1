@@ -2,6 +2,7 @@ from odoo import api, fields, models
 
 class HmsHotel(models.Model):
     _name = 'hms.hotel'
+    _inherit = ['image.mixin']
     _description = 'HmsHotel'
 
     name = fields.Char()
@@ -9,3 +10,5 @@ class HmsHotel(models.Model):
     room_ids = fields.One2many('hms.room','hotel_id')
     active = fields.Boolean('Active', default=True)
     currency_id = fields.Many2one('res.currency',required=True)
+    # image = fields.Binary()
+    # image = fields.Image()
