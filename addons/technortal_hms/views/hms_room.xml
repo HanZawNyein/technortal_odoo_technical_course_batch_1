@@ -31,14 +31,20 @@
                     </div>
                     <group>
                         <group>
-                        <field name="name"/>
-                        <field name="hotel_id"/>
-                    </group>
-                    <group>
-                        <field name="type"/>
-                        <field name="currency_id" invisible="0"/>
-                        <field name="price_unit"/>
-                    </group>
+                            <field name="name"/>
+                            <field name="hotel_id"/>
+                        </group>
+                        <group>
+                            <field name="type"/>
+                            <field name="currency_id" invisible="0"/>
+                            <field name="price_unit"/>
+                        </group>
+                        <group colspan="2" name="product_variant_images" string="Extra Variant Media">
+                            <field name="attachment_ids" class="o_website_sale_image_list"
+                                   context="{'default_name': name}" mode="kanban" add-label="Add Media" nolabel="1"
+                                   widget="x2_many_media_viewer" options="{'convert_to_webp': True}"/>
+                        </group>
+<!--                        <field name="attachment_ids" widget="many2many_binary"/>-->
                     </group>
                 </sheet>
             </form>

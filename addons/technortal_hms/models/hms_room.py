@@ -19,6 +19,10 @@ class HmsRoom(models.Model):
     # price_unit = fields.Float()
     currency_id = fields.Many2one('res.currency', string='Currency',related='hotel_id.currency_id',readonly=True,)
     price_unit = fields.Monetary(currency_field='currency_id', string='Price')
+    attachment_ids = fields.Many2many(
+        comodel_name='ir.attachment',
+        string="Attachments",
+    )
 
     _sql_constraints = [
         ('hms_room_name_unique', 'unique(name)', 'Room name already exists.')
