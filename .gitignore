@@ -174,3 +174,4 @@ cython_debug/
 .pypirc
 config
 odoo_pg_pass
+nginx.conf
