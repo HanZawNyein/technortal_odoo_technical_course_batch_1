@@ -1,1 +1,1 @@
-# technortal_odoo_technical_course_batch_1
+# welcome from technortal odoo course batch 1
