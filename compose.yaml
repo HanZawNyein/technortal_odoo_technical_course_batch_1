@@ -8,6 +8,8 @@ services:
       - db
     ports:
       - "8069:8069"
+      - "8072:8072"
+      - "8071:8071"
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
@@ -27,6 +29,17 @@ services:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
     secrets:
       - postgresql_password
+
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - odoo
+
 volumes:
   odoo-web-data:
   odoo-db-data:
