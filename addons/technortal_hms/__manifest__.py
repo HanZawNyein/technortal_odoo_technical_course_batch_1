@@ -28,9 +28,9 @@
     ],
 
     "description": """""",
-    "external_dependencies": {
-        "python": ["paramiko"],
-    },
+    # "external_dependencies": {
+    #     "python": ["paramiko"],
+    # },
     "assets": {
         "web.assets_backend": [
             "technortal_hms/static/src/sample_client_action/**/*",
