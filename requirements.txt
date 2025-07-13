@@ -1,1 +1,1 @@
-numpy
+paramiko==3.5.1
