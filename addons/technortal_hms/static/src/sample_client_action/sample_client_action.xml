@@ -3,6 +3,25 @@
     <t t-name="technortal_hms.SampleClientAction">
         <div class="container mt-5">
             <h5>Hello world</h5>
+            <hr/>
+            <div class="d-flex m-2">
+                <input class="form-control mx-2" t-ref="search-input" placeholder="search"/>
+                <button class="btn btn-primary" t-on-click="search">search</button>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <t t-foreach="state.partners" t-as="partner" t-key="partner.id">
+                  <div class="col">
+                    <div class="card h-100">
+                      <img t-attf-src="/web/image/res.partner/{{partner.id}}/avatar_128" class="card-img-top" alt="..."/>
+                        <div class="card-body">
+                        <h5 class="card-title">
+                            <t t-out="partner.display_name"/>
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </t>
+                </div>
         </div>
     </t>
 </templates>
