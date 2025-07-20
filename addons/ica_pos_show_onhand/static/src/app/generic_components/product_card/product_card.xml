@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension">
+        <div t-if="props.productInfo" position="after">
+
+            <div t-if="props.productInfo" class="" t-on-click.stop="props.onProductInfoClick" t-att-class="{'red-tag' : props.showWarning}">
+                    <i class="product-information-tag-logo fa fa-address-book" role="img" aria-label="Product Information" title="Product Information" />
+                </div>
+            </div>
+<!--        -->
+<!--        <xpath expr="//i[hasclass('product-information-tag-logo')]" position="after">-->
+<!--             <i class="product-information-tag-logo fa fa-address-book" role="img" aria-label="Product Information"-->
+<!--                title="Product Information"/>-->
+<!--        </xpath>-->
+    </t>
+</templates>
